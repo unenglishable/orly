@@ -11,5 +11,8 @@
     "url": "github.com/unenglishable/orly.git"
   },
   "author": "unenglishable",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mithril": "^0.2.0"
+  }
 }
