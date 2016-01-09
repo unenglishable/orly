@@ -2,8 +2,8 @@ var m = require('mithril');
 
 var isItASearchBox = {
   view: function() {
-    return m("input");
+    return m('input');
   }
 };
 
-m.module(document.getElementById("isItASearchBox"), isItASearchBox);
+m.module(document.getElementById('isItASearchBox'), isItASearchBox);
