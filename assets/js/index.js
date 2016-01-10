@@ -1,5 +1,9 @@
 var m = require('mithril');
 
+var binds = function(prop) {
+  return { oninput: m.withAttr('value', prop), value: prop() };
+};
+
 var message = m.prop('');
 
 var result = {
@@ -19,7 +23,7 @@ var result = {
 
 var isItASearchBox = {
   view: function() {
-    return m('input');
+    return m('input', binds(message));
   }
 };
 
