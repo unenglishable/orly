@@ -1,4 +1,5 @@
 var m = require('mithril');
+var formatters = require('./formatters');
 
 var binds = function(prop) {
   return { oninput: m.withAttr('value', prop), value: prop() };
@@ -11,7 +12,7 @@ var result = {
     var input = message();
     var output = '';
     if (input !== '') {
-      output = 'Hit enter to check if "' + input + '" is a thing!';
+      output = formatters.currentInput(input);
       console.log('message: "'+input+'"');
     }
     else {
