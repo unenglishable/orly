@@ -8,3 +8,9 @@ formatters.currentInput = function(input) {
     return 'Is that thing you\'re thinking of even a thing?  Type below to find out!';
   }
 };
+
+formatters.result = function(input) {
+  if (input !== '') {
+    return '"' + input + '" is a thing!';
+  }
+};
