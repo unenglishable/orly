@@ -6,6 +6,7 @@ var binds = function(prop) {
 };
 
 var message = m.prop('');
+var isIt = m.prop('');
 
 var current = {
   view: function() {
@@ -14,9 +15,25 @@ var current = {
   }
 };
 
+var result = {
+  view: function() {
+    var input = isIt();
+    return m('div', formatters.result(input));
+  }
+};
+
 var isItASearchBox = {
   view: function() {
-    return m('input', binds(message));
+    var action = binds(message);
+    action.onkeyup = function(e) {
+       if (e.keyCode === 13) {
+         isIt(message());
+       }
+       else {
+         isIt('');
+       }
+    };
+    return m('input', action);
   }
 };
 
