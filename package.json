@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir -p dist/js && node_modules/browserify/bin/cmd.js assets/js/index.js -o dist/js/index.js",
+    "build": "mkdir -p dist/js dist/styles && cp assets/styles/main.css dist/styles/main.css && node_modules/browserify/bin/cmd.js assets/js/index.js -o dist/js/index.js",
     "start": "npm run build && node app.js"
   },
   "repository": {
