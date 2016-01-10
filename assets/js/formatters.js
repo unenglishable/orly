@@ -6,6 +6,6 @@ formatters.currentInput = function(input) {
     return 'Hit enter to check if "' + input + '" is a thing!';
   }
   else {
-    return 'Is it a thing?!';
+    return 'Is that thing you\'re thinking of even a thing?  Type below to find out!';
   }
 };
