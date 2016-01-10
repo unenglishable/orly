@@ -7,7 +7,7 @@ var binds = function(prop) {
 
 var message = m.prop('');
 
-var result = {
+var current = {
   view: function() {
     var input = message();
     return m('div', formatters.currentInput(input));
@@ -21,4 +21,5 @@ var isItASearchBox = {
 };
 
 m.module(document.getElementById('isItASearchBox'), isItASearchBox);
+m.module(document.getElementById('current'), current);
 m.module(document.getElementById('result'), result);
