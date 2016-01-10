@@ -1,0 +1,15 @@
+h1 {
+  font-family: 'Lora';
+}
+
+#current {
+  font-family: 'Lato';
+  font-size: 20px;
+}
+
+#result {
+  font-family: 'Lato';
+  font-weight: bold;
+  font-size: 20px;
+  color: green;
+}
