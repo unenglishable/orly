@@ -21,6 +21,7 @@
     "express": "^4.13.3",
     "kerberos": "0.0.17",
     "mithril": "^0.2.0",
-    "mongodb": "^2.1.4"
+    "mongoose": "^4.3.7",
+    "mongoose-bird": "0.0.1"
   }
 }
