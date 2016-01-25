@@ -40,6 +40,22 @@ things.all = function() {
   return Thing.findAsync();
 };
 
+things.updoot = function(thingData) {
+  return Thing.findOneAsync({ name: thingData.name })
+  .then(function(foundThing) {
+    foundThing.updoot();
+    return foundThing.saveAsync();
+  });
+};
+
+things.downdoot = function(thingData) {
+  return Thing.findOneAsync({ name: thingData.name })
+  .then(function(foundThing) {
+    foundThing.downdoot();
+    return foundThing.saveAsync();
+  });
+};
+
 things.delete = function(thingData) {
   return Thing.findOneAsync({ name: thingData.name })
   .then(function(foundThing) {
