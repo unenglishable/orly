@@ -7,10 +7,14 @@ var NotFoundError = Promise.OperationalError;
 
 var thingSchema = db.Schema({
   name: { type: String, unique: true },
+  nods: Number,
   doots: Number
 });
 
 thingSchema.methods = {
+  nod: function() {
+    this.nods++;
+  },
   updoot: function() {
     this.doots++;
   },
@@ -24,7 +28,8 @@ var Thing = db.model('Thing', thingSchema);
 things.create = function(thingData) {
   var newThing = new Thing({
     name: thingData.name,
-    doots: 1
+    nods: 1,
+    doots: 0
   });
   return newThing.saveAsync()
   .catch(function(error) {
@@ -38,6 +43,14 @@ things.find = function(thingData) {
 
 things.all = function() {
   return Thing.findAsync();
+};
+
+things.nod = function(thingData) {
+  return Thing.findOneAsync({ name: thingData.name })
+  .then(function(foundThing) {
+    foundThing.nod();
+    return foundThing.saveAsync();
+  });
 };
 
 things.updoot = function(thingData) {
