@@ -1,4 +1,4 @@
-var db = require('../db');
+var db = require('../assets/js/db');
 
 var thingData = { name: process.argv[2] };
 
