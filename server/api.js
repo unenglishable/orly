@@ -1,5 +1,5 @@
 var express = require('express');
-var apiThing = require('./pages/thing/apiThing');
+var apiThing = require('./pages/thing/api');
 
 var router = module.exports = express.Router();
 
