@@ -4,6 +4,7 @@
   "description": "web server for evenathing",
   "main": "app.js",
   "scripts": {
+    "serve": "node ./server",
     "test": "node test",
     "build": "mkdir -p dist/js dist/styles && cp assets/styles/main.css dist/styles/main.css && node_modules/browserify/bin/cmd.js assets/js/index.js -o dist/js/index.js",
     "start": "npm run build && node app.js"
@@ -17,6 +18,7 @@
   "dependencies": {
     "bluebird": "^3.1.1",
     "browserify": "^12.0.2",
+    "browserify-middleware": "^7.0.0",
     "dotenv": "^1.2.0",
     "express": "^4.13.3",
     "kerberos": "0.0.17",
