@@ -24,9 +24,6 @@ app.get('/app.js', browserify(path.join(clientDir, 'js', 'app.js'), {}));
 app.get('*', function (req, res) {
   res.sendFile(path.join(clientDir, 'index.html'));
 });
-// app.get('#<{(|', function(req, res) {
-//   res.sendFile(path.join(__dirname, '..', 'client', 'index.client.html'));
-// });
 
 app.listen(app.get('port'));
 
