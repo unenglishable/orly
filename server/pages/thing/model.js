@@ -1,11 +1,11 @@
 var path = require('path');
-var db = require(path.join(__dirname, 'db'));
+var mongoose = require('mongoose');
 var things = module.exports = {};
 var Promise = require('bluebird');
 var CreationError = Promise.OperationalError;
 var NotFoundError = Promise.OperationalError;
 
-var thingSchema = db.Schema({
+var thingSchema = mongoose.Schema({
   name: { type: String, unique: true },
   nods: Number,
   doots: Number
@@ -23,7 +23,7 @@ thingSchema.methods = {
   }
 };
 
-var Thing = db.model('Thing', thingSchema);
+var Thing = mongoose.model('Thing', thingSchema);
 
 things.create = function(thingData) {
   var newThing = new Thing({
