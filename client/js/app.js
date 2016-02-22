@@ -1,42 +1,17 @@
 var m = require('mithril');
-var formatters = require('./formatters');
 
-var binds = function(prop) {
-  return { oninput: m.withAttr('value', prop), value: prop() };
-};
+m.route.mode = 'pathname';
 
-var message = m.prop('');
-var isIt = m.prop('');
-
-var current = {
-  view: function() {
-    var input = message();
-    return m('div', formatters.currentInput(input));
-  }
-};
-
-var result = {
-  view: function() {
-    var input = isIt();
-    return m('div', formatters.result(input));
-  }
-};
-
-var isItASearchBox = {
-  view: function() {
-    var action = binds(message);
-    action.onkeyup = function(e) {
-       if (e.keyCode === 13) {
-         isIt(message());
-       }
-       else {
-         isIt('');
-       }
-    };
-    return m('input', action);
-  }
-};
-
-m.module(document.getElementById('isItASearchBox'), isItASearchBox);
-m.module(document.getElementById('current'), current);
-m.module(document.getElementById('result'), result);
+m.route(document.getElementById('root'), "/", {
+  "/": require('./pages/home/index.js')
+  // "/login": require('./pages/login/Login.js'),
+  // "/logout": require('./pages/logout/Logout.js'),
+  // "/register": require('./pages/register/Register.js'),
+  // "/verify/:code": require('./pages/verify/Verify.js'),
+  // "/profile": require('./pages/profile/Profile.js'),
+  // "/blog": require('./pages/blog'),
+  // "/blog/:page": require('./pages/blog'),
+  // "/post/:id": require('./pages/blog/post'),
+  // "/users": require('./pages/user'),
+  // "/users/:page": require('./pages/user')
+});
